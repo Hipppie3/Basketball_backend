@@ -1,6 +1,6 @@
-import Player from '../models/Player.js';
+import Player from '../models/player.js';
 
-export const addPlayers = async (req, res) => {
+export const addPlayer = async (req, res) => {
  const { firstName, lastName } = req.body;
  try {
   const newPlayer = await Player.create({firstName, lastName});
