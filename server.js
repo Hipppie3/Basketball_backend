@@ -13,3 +13,11 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
  res.send('server is running successfully')
 });
+
+sequelize.authenticate()
+.then(() => {
+ console.log("database connection successful");
+ return sequelize.sync({alter: true});
+})
+.then(() =>console.log("models syncrhonized with database"))
+.catch((err) => console.log("Unable to connect", err));
