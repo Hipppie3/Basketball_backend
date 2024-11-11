@@ -45,7 +45,7 @@ try {
   res.status(200).json({ message: "Player deleted succesfully"})
  } else {
   res.status(404).json({ message: "Player not found"})
- } }
+ }}
  catch (error) {
   console.error("Error deleting player:", error);
   res.status(500).json({error: "Failed to delete player"})
