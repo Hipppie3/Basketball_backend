@@ -34,3 +34,20 @@ export const getPlayer = async (req, res) => {
   res.status(500).json({error: "Error retrieving player"});
  }
 };
+
+export const deletePlayer = async (req, res) => {
+const {id} = req.params;
+try {
+ const result = await Player.destroy({
+  where: { id }
+ });
+ if (result) {
+  res.status(200).json({ message: "Player deleted succesfully"})
+ } else {
+  res.status(404).json({ message: "Player not found"})
+ } }
+ catch (error) {
+  console.error("Error deleting player:", error);
+  res.status(500).json({error: "Failed to delete player"})
+ }
+};
